@@ -4,13 +4,14 @@ Showdown is a Ruby gem that converts markdown presentations to PDF with custom l
 
 ## Features
 
-- 📊 **GitHub Flavored Markdown** - Full support for tables, code highlighting, task lists, and more
-- 🎨 **Custom Layouts** - Use ERB templates to create custom slide layouts  
-- 🎯 **Slide Delimiters** - Use `---slide` and `---notes` for clear slide separation
-- 📝 **Speaker Notes** - Generate separate PDF with detailed speaker notes
-- 🎭 **Theming** - Customize colors, fonts, and styling with YAML theme files
-- 📐 **Orientation Support** - Choose between portrait and landscape orientations
-- ⚡ **CLI Interface** - Simple command-line tool for quick conversions
+- **GitHub Flavored Markdown** - Full support for tables, code highlighting, task lists, and more
+- **Custom Layouts** - Use ERB templates to create custom slide layouts  
+- **Slide Delimiters** - Use `---slide` and `---notes` for clear slide separation
+- **Speaker Notes** - Generate separate PDF with detailed speaker notes
+- **Theming** - Customize colors, fonts, and styling with YAML theme files
+- **Orientation Support** - Choose between portrait and landscape orientations
+- **Live Reload** - Watch files for changes and auto-regenerate PDFs during development
+- **CLI Interface** - Simple command-line tool for quick conversions
 
 ## Installation
 
@@ -46,6 +47,13 @@ showdown convert presentation.md
 ```bash
 showdown convert presentation.md --notes
 ```
+
+5. Use live reload during development:
+```bash
+showdown watch presentation.md
+```
+
+This will automatically regenerate the PDF whenever you save changes to your markdown files, themes, or layouts.
 
 ## Slide Format
 
@@ -213,6 +221,47 @@ Creates sample presentation files including:
 ```bash
 showdown version
 ```
+
+### Watch (Live Reload)
+```bash
+showdown watch presentation.md [options]
+```
+
+Monitors your presentation files for changes and automatically regenerates the PDF. Perfect for development workflows.
+
+Options:
+- `-o, --output` - Output PDF file path
+- `-l, --layout` - Layout template file path  
+- `-t, --theme` - Theme file path
+- `-n, --notes` - Generate separate notes PDF
+- `-v, --verbose` - Show detailed output during regeneration
+- `-d, --debounce` - Debounce delay in seconds (default: 0.5)
+
+**Features:**
+- **Smart File Watching** - Monitors markdown, theme, layout, and asset files
+- **Fast Regeneration** - Quick incremental updates with timing information
+- **Debounced Changes** - Handles rapid file saves efficiently
+- **Error Recovery** - Continues watching even if generation fails
+- **Progress Feedback** - Shows what files changed and generation status
+
+**Example:**
+```bash
+# Basic watch mode
+showdown watch slides.md
+
+# Watch with notes and verbose output
+showdown watch slides.md --notes --verbose
+
+# Watch with custom theme and longer debounce
+showdown watch slides.md -t themes/corporate.yml --debounce 1.0
+```
+
+**Monitored Files:**
+- `.md` - Markdown presentation files
+- `.yml/.yaml` - Theme configuration files
+- `.erb` - Layout template files
+- `.css` - Stylesheet files
+- `.png/.jpg/.svg` - Asset files referenced in presentations
 
 ## GitHub Flavored Markdown Support
 

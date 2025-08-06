@@ -42,17 +42,12 @@ module Showdown
       @layout = Layout.new(layout_path)
     end
     
-    def html_to_pdf(html_content, presentation)
-      # For now, we'll create a simple PDF with Prawn
-      # In a full implementation, you might want to use a HTML-to-PDF converter
-      # like wkhtmltopdf or integrate with a browser engine
-      
+    def html_to_pdf(html_content, presentation)     
       pdf = Prawn::Document.new(
         page_size: theme.page_size,
         margin: theme.margin
       )
-
-      # Register Unicode font
+      
       font_path = File.expand_path("../../NotoSans-Regular.ttf", __dir__)
       if File.exist?(font_path)
         pdf.font_families.update(

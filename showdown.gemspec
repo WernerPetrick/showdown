@@ -50,4 +50,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mini_magick", "~> 4.12"
   spec.add_dependency "base64", "~> 0.1"
   spec.add_dependency "prawn-svg", "~> 0.32"
+  spec.add_dependency "listen", "~> 3.8"
 end

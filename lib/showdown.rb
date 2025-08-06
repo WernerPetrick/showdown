@@ -7,6 +7,7 @@ require "showdown/html_processor"
 require "showdown/renderer"
 require "showdown/layout"
 require "showdown/theme"
+require "showdown/watch_mode"
 require "showdown/cli"
 
 # Ensure prawn-svg is loaded for SVG diagram support

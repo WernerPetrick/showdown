@@ -56,6 +56,34 @@ module Showdown
       puts Showdown::VERSION
     end
     
+    desc "watch INPUT_FILE", "Watch file for changes and auto-regenerate PDF"
+    option :output, aliases: '-o', desc: "Output PDF file path"
+    option :layout, aliases: '-l', desc: "Layout template file path"  
+    option :theme, aliases: '-t', desc: "Theme file path"
+    option :notes, aliases: '-n', type: :boolean, desc: "Generate separate notes PDF"
+    option :verbose, aliases: '-v', type: :boolean, desc: "Verbose output"
+    option :debounce, aliases: '-d', type: :numeric, default: 0.5, desc: "Debounce delay in seconds"
+    
+    def watch(input_file)
+      unless File.exist?(input_file)
+        puts "Error: Input file '#{input_file}' not found."
+        exit 1
+      end
+      
+      watch_options = {
+        output: options[:output] || default_output_name(input_file),
+        layout: options[:layout],
+        theme: options[:theme], 
+        notes: options[:notes],
+        verbose: options[:verbose],
+        debounce: options[:debounce]
+      }
+      
+      require_relative 'watch_mode'
+      watcher = WatchMode.new(input_file, watch_options)
+      watcher.start
+    end
+
     private
     
     def default_output_name(input_file)
