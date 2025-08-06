@@ -1,4 +1,4 @@
-[logo]: https://github.com/WernerPetrick/showdown/blob/main/images/ShowDown_logo.png
+![ShowDown Logo](https://github.com/WernerPetrick/showdown/raw/main/images/ShowDown_logo.png)
 
 # Showdown
 
