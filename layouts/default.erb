@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= @presentation.title %></title>
+  <style>
+    <%= @theme.css if @theme %>
+  </style>
+</head>
+<body>
+  <% @slides.each_with_index do |slide, index| %>
+    <div class="slide" data-slide="<%= index + 1 %>">
+      <header>
+        <h1><%= @presentation.title %></h1>
+        <span class="slide-number"><%= index + 1 %> / <%= @slides.length %></span>
+      </header>
+      
+      <main>
+        <%= slide.content %>
+      </main>
+      
+      <footer>
+        <span class="author"><%= @presentation.author %></span>
+        <span class="date"><%= @presentation.date %></span>
+      </footer>
+    </div>
+  <% end %>
+</body>
+</html>

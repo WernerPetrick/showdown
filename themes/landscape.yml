@@ -1,0 +1,109 @@
+colors:
+  primary: "#059669"
+  secondary: "#6b7280" 
+  background: "#ffffff"
+  text: "#111827"
+
+fonts:
+  body: "Helvetica"
+  heading: "Helvetica-Bold"
+  code: "Courier"
+
+layout:
+  margin: 50
+  slide_width: 792
+  slide_height: 612
+  orientation: "landscape"  # "portrait" or "landscape"
+
+css: |
+  .slide {
+    page-break-after: always;
+    padding: 30px;
+    font-family: Helvetica, sans-serif;
+    color: #111827;
+  }
+  
+  .slide header {
+    border-bottom: 3px solid #059669;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .slide header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #059669;
+  }
+  
+  .slide-number {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .slide main {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .slide footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 12px;
+    color: #6b7280;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #059669;
+    margin-top: 0;
+  }
+  
+  h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  code {
+    background-color: #f3f4f6;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: Courier, monospace;
+  }
+  
+  pre {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #059669;
+  }
+  
+  ul, ol {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  ul li[data-task="true"] {
+    list-style: none;
+  }
+  
+  ul li[data-task="true"]:before {
+    content: "✅ ";
+    margin-right: 8px;
+  }
+  
+  ul li[data-task="false"]:before {
+    content: "☐ ";
+    margin-right: 8px;
+    color: #9ca3af;
+  }
