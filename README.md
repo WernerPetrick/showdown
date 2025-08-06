@@ -1,8 +1,6 @@
 ![ShowDown Logo](https://github.com/WernerPetrick/showdown/raw/main/images/ShowDown_logo.png)
 
-# Showdown
-
-Showdown is a Ruby gem that converts markdown presentations to PDF with custom layouts and themes. It supports GitHub Flavored Markdown, custom slide delimiters, ERB layouts, speaker notes, and theming.
+Showdown is a Ruby gem that converts markdown presentations to PDF with custom layouts. It supports GitHub Flavored Markdown, custom slide delimiters, ERB layouts, speaker notes, and theming.
 
 ## Features
 
@@ -84,11 +82,11 @@ Add detailed explanations and talking points here.
 | Themes | ✅ |
 | Notes | ✅ |
 
-```ruby
+``ruby
 def example_code
   puts "Syntax highlighting works!"
 end
-```
+``
 
 ---slide
 # Thank You!
