@@ -70,6 +70,20 @@ module Showdown
     end
     
     def render_slide_to_pdf(pdf, slide, presentation, slide_number)
+      # Fill slide background
+      bg_color = theme.colors['background'] || '#ffffff'
+
+      pdf.canvas do
+        prawn_bg_color = bg_color.is_a?(String) && bg_color.start_with?("#") ? bg_color[1..-1] : bg_color
+        pdf.fill_color prawn_bg_color
+        pdf.fill_rectangle [0, pdf.bounds.top], pdf.bounds.width, pdf.bounds.height
+      end
+
+      # Set default text color
+      text_color = theme.colors['text'] || '#000000'
+      prawn_text_color = text_color.is_a?(String) && text_color.start_with?("#") ? text_color[1..-1] : text_color
+      pdf.fill_color prawn_text_color
+
       # Header
       pdf.bounding_box([0, pdf.cursor], width: pdf.bounds.width, height: 50) do
         pdf.font("NotoSans", size: 16) { pdf.text presentation.title }
